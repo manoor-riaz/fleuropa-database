@@ -1,0 +1,61 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: url('../static/fond.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+header, nav{
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+header {
+    text-align: center;
+}
+
+nav {
+    text-align: center;
+    margin: 10px auto;
+}
+
+nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: black;
+}
+    
+.container {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+    margin: 50px auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+            
+h1, h2 {
+    margin-bottom: 20px;
+}
+            
+.container p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+            
+.important {
+    font-size: 20px;
+    font-weight: bold;
+    color: #000000;
+}
+            
+.recap {
+    text-align: left;
+    margin-top: 20px;
+}
+.recap p {
+    margin: 5px 0;
+}

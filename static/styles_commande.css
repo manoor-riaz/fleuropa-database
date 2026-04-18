@@ -1,0 +1,122 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: url('../static/fond.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+header, nav, p {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+header {
+    text-align: center;
+}
+
+nav {
+    text-align: center;
+    margin: 10px auto;
+}
+
+nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: black;
+}
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        .bouquet-detail,.order-form {
+            border: 1px solid #ddd;
+            margin: 10px;
+            padding: 20px;
+            width: 400px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8);
+
+        }
+        .bouquet-detail img {
+            width: 100%;
+            height: auto;
+        }
+        .bouquet-detail h3 {
+            margin: 10px 0;
+        }
+        .bouquet-detail p {
+            margin: 5px 0;
+        }
+        .order-form {
+        margin-top: 20px;
+        width: 400px;
+        height: 100%; 
+        display: flex; 
+        flex-direction: column;
+        justify-content: center; 
+        align-items: center; 
+        background-color: rgba(255, 255, 255, 0.8); 
+        border: 1px solid #ddd;
+        padding: 20px;
+        text-align: center;
+}
+
+        .order-form label {
+            display: block;
+            margin: 10px 0 5px;
+
+        }
+        .order-form input, 
+.order-form select, 
+.order-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+input[type="text"], 
+input[type="number"], 
+select {
+    appearance: none; 
+}
+
+.order-form label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+.order-button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+        .order-button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .order-button:hover {
+            background-color: #45a049;
+        }
+        .login-link {
+            margin-top: 20px;
+            text-align: center;
+        }

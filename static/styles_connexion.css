@@ -1,0 +1,90 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: url('../static/fond.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+header, nav, p {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    text-align: center;
+}
+
+header {
+    text-align: center;
+}
+
+nav {
+    text-align: center;
+    margin: 10px auto;
+}
+
+nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: black;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    padding: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+}
+
+
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+}
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+input {
+    width: 100%; 
+    max-width: 400px;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+input[type="submit"] {
+    width: 100%; 
+    max-width: 400px;
+    padding: 10px;
+    background-color: #4CAF50; 
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    border-radius: 5px; 
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049; 
+}
+

@@ -1,0 +1,34 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: url('../static/fond.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+header, nav, p {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+header {
+    text-align: center;
+}
+
+nav {
+    text-align: center;
+    margin: 10px auto;
+}
+
+nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: black;
+}
+
+p {
+    margin: 20px auto;
+    width: 80%;
+    text-align: center;
+}
