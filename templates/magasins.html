@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des Magasins</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles_magasins.css') }}">
+
+</head>
+<body>
+    <header>
+        <h1>Liste des Magasins</h1>
+    </header>
+    <nav>
+        <a href="{{ url_for('accueil') }}">Accueil</a> - 
+        <a href="{{ url_for('bouquets') }}">Bouquets</a> - 
+        <a href="{{ url_for('inscription') }}">Inscription au club</a> 
+    </nav>
+    <p>Vous trouverez ci-dessous la liste de nos magasins. Nous tenons à préciser que les livraisons ne sont possibles que dans les villes où se situent nos magasins.</p>
+    <div class="container">
+        <div class="magasin-list">
+            <h3>Nos Magasins</h3>
+            <ul>
+                {% for magasin in magasins %}
+                    <li>{{ magasin[0] }} - {{ magasin[1] }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

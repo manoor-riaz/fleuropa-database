@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Bouquets</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles_bouquets.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Fleuropa</h1>
+        <h2>Fleuriste depuis 1980</h2>
+    </header>
+    <nav>
+        <a href="{{ url_for('accueil') }}">Accueil</a>
+        <a href="{{ url_for('bouquets') }}">Bouquets</a>
+        {% if 'numcli' in session %}
+            <a href="{{ url_for('deconnexion') }}">Déconnexion</a>
+        {% else %}
+            <a href="{{ url_for('connexion') }}">Connexion</a>
+            <a href="{{ url_for('inscription') }}">Inscription au club</a>
+        {% endif %}
+        <a href="{{ url_for('consulter_commande') }}">Suivre votre commande</a>
+    </nav>
+    <div class="container">
+        <h1>Les bouquets les plus vendus</h1>
+        {% if bouquets_plus_achetes %}
+            {% for bouquet in bouquets_plus_achetes %}
+                <div class="bouquet">
+                    <h2>{{ bouquet[0] }}</h2>
+                    <img src="{{ url_for('static', filename=bouquet[1]) }}" alt="{{ bouquet[0] }}">
+                    <a href="{{ url_for('bouquet', modele=bouquet[0], taille=bouquet[2]) }}">Voir les détails</a>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>Aucun bouquet trouvé.</p>
+        {% endif %}
+    </div>
+    <div class="container">
+        <h1>Tous les bouquets</h1>
+        {% if tous_les_bouquets %}
+            {% for bouquet in tous_les_bouquets %}
+                <div class="bouquet">
+                    <h2>{{ bouquet[0] }}</h2>
+                    <img src="{{ url_for('static', filename=bouquet[1]) }}" alt="{{ bouquet[0] }}">
+                    <a href="{{ url_for('choisir_taille', modele=bouquet[0]) }}">Choisir la taille</a>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>Aucun bouquet trouvé.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

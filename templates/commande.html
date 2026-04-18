@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <title>Commande - {{ bouquet.modele }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles_commande.css') }}">
+
+</head>
+<body>
+    <header>
+        <h1>Fleuropa</h1>
+        <h2>Commande - {{ bouquet.modele }}</h2>
+    </header>
+    <nav>
+        <a href="{{ url_for('accueil') }}">Accueil</a> - 
+        <a href="{{ url_for('bouquets') }}">Bouquets</a> - 
+        <a href="{{ url_for('inscription') }}">Inscription au club</a>
+    </nav>
+    <div class="container">
+        <div class="bouquet-detail">
+            <img src="{{ url_for('static', filename=bouquet.photomodele) }}" alt="{{ bouquet.modele }}">
+            <h3>{{ bouquet.modele }}</h3>
+            <p>Taille: {{ bouquet.taille }}</p>
+            <p>Prix: {{ bouquet.prix }}€</p>
+        </div>
+        <form class="order-form" method="POST">
+            <label for="nom_expediteur">Nom de l'expéditeur</label>
+            <input type="text" id="nom_expediteur" name="nom_expediteur" value="{{ nom_expediteur if nom_expediteur else (membre.nom if membre else '') }}" required>
+        
+            <label for="prenom_expediteur">Prénom de l'expéditeur</label>
+            <input type="text" id="prenom_expediteur" name="prenom_expediteur" value="{{ prenom_expediteur if prenom_expediteur else (membre.prenom if membre else '') }}" required>
+        
+            <label for="adressemail">Adresse mail</label>
+            <input type="text" id="adressemail" name="adressemail" value="{{ adressemail if adressemail else (membre.adressemail if membre else '') }}" required>
+            {% if erreur %}
+                <p class="error-message">{{ erreur }}</p>
+            {% endif %}
+            <label for="nom">Nom du destinataire</label>
+            <input type="text" id="nom" name="nom" value="{{ nom_destinataire if nom_destinataire else '' }}" required>
+        
+            <label for="prenom">Prénom du destinataire</label>
+            <input type="text" id="prenom" name="prenom" value="{{ prenom_destinataire if prenom_destinataire else '' }}" required>
+            
+            <label for="code_postal">Sélectionner le code postal du destinataire :</label>
+                <select id="code_postal" name="code_postal" required>
+                    {% for magasin in magasins %}
+                        <option value="{{ magasin[0] }}" {% if magasin[0] == code_postal %}selected{% endif %}>{{ magasin[0] }}</option>
+                    {% endfor %}
+                </select>
+            
+                <label for="adresse">Adresse du destinataire</label>
+            <input type="text" id="adresse" name="adresse" value="{{ adresse if adresse else '' }}" required>
+        
+            <label for="date_expedition">Date d'expédition souhaitée</label>
+            <input type="date" id="date_expedition" name="date_expedition" value="{{ date_expedition_voulue if date_expedition_voulue else '' }}" required>
+        
+            <label for="message">Message pour le destinataire (facultatif)</label>
+            <textarea id="message" name="message" rows="3" placeholder="Entrez votre message ici...">{{ message if message else '' }}</textarea>
+        
+            <button type="submit" class="order-button">Confirmer la commande</button>
+        </form>
+        
+        
+        {% if not membre %}
+            <div class="login-link">
+                <p>Vous avez déjà un compte ? <a href="{{ url_for('connexion', next=request.url) }}">Se connecter</a></p>
+            </div>
+        {% endif %}
+        
+        
+    </div>
+</body>
+</html>

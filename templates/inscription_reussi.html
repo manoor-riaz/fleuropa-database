@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Inscription Réussie</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles_inscriptionreussi.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Inscription Réussie</h1>
+        <p>Votre inscription a été réalisée avec succès !</p>
+        <p>Votre numéro de client est : <strong>{{ numcli }}</strong></p>
+        <p>Veuillez le conserver précieusement, il vous servira pour vous connecter.</p>
+        <p><a href="{{ url_for('connexion') }}">Cliquez ici pour vous connecter</a></p>
+        <p>Ou <a href="{{ url_for('accueil') }}">retourner à l'accueil</a></p>
+    </div>
+</body>
+</html>

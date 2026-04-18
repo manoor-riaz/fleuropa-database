@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Consulter votre commande</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles_consultercommande.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Fleuropa</h1>
+        <h2>Fleuriste depuis 1980</h2>
+    </header>
+    <nav>
+        <a href="{{ url_for('accueil') }}">Accueil</a>
+        <a href="{{ url_for('bouquets') }}">Bouquets</a>
+        {% if 'numcli' in session %}
+            <a href="{{ url_for('deconnexion') }}">Déconnexion</a>
+        {% else %}
+            <a href="{{ url_for('connexion') }}">Connexion</a>
+            <a href="{{ url_for('inscription') }}">Inscription au club</a>
+        {% endif %}
+        <a href="{{ url_for('consulter_commande') }}">Suivre votre commande</a>
+    </nav>
+    <div class="container">
+        <h1>Consulter Commande</h1>
+        <form action="{{ url_for('details_commande') }}" method="post">
+            <label for="reference_c">Référence de commande :</label>
+            <input type="text" id="reference_c" name="reference_c" required>
+            <label for="code_confidentiel">Code Confidentiel :</label>
+            <input type="password" id="code_confidentiel" name="code_confidentiel" required>
+            <input type="submit" value="Consulter">
+        </form>
+    </div>
+</body>
+</html>

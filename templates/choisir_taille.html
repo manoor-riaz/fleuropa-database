@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Choisir la Taille</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles_choisirtaille.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Fleuropa</h1>
+        <h2>Fleuriste depuis 1980</h2>
+    </header>
+    <nav>
+        <a href="{{ url_for('accueil') }}">Accueil</a>
+        <a href="{{ url_for('bouquets') }}">Bouquets</a>
+        {% if 'numcli' in session %}
+            <a href="{{ url_for('deconnexion') }}">Déconnexion</a>
+        {% else %}
+            <a href="{{ url_for('connexion') }}">Connexion</a>
+            <a href="{{ url_for('inscription') }}">Inscription au club</a>
+        {% endif %}
+        <a href="{{ url_for('consulter_commande') }}">Suivre votre commande</a>
+    </nav>
+    <div class="container">
+        {% if bouquet %}
+            <h1>Choisir la Taille pour {{ modele }}</h1>
+            {% for b in bouquet %}
+                <div class="taille">
+                    <h2>{{ b[1] }}</h2>
+                    <a href="{{ url_for('bouquet', modele=b[0], taille=b[1]) }}">Voir les détails</a>
+                </div>
+            {% endfor %}
+        {% else %}
+            <h1>Aucun bouquet trouvé pour ce modèle.</h1>
+        {% endif %}
+    </div>
+</body>
+</html>

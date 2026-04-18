@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+    <title>Paiement - Commande n°{{ num_commande }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles_paiement.css') }}">
+
+    
+</head>
+<body>
+    <div class="container">
+        <h1>Paiement</h1>
+        {% if erreur %}
+            <p class="erreur">{{ erreur }}</p>
+        {% endif %}
+        <form method="POST">
+            <label for="numero_carte">Numéro de carte bancaire</label>
+            <input type="text" id="numero_carte" name="numero_carte" placeholder="1234 5678 9012 3456" required>
+
+            <label for="date_expiration">Date d'expiration</label>
+            <input type="date" id="date_expiration" name="date_expiration" required>
+
+            <label for="cryptogramme">Cryptogramme (3 chiffres au dos)</label>
+            <input type="text" id="cryptogramme" name="cryptogramme" placeholder="123" required>
+
+            <button type="submit">Valider le paiement</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+    <title>Fleuropa</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles_accueil.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Fleuropa</h1>
+        <h2>Fleuriste depuis 1980</h2>
+    </header>
+    <nav>
+        <a href="{{ url_for('accueil') }}">Accueil</a>
+        <a href="{{ url_for('bouquets') }}">Bouquets</a>
+        {% if 'numcli' in session %}
+            <a href="{{ url_for('deconnexion') }}">Déconnexion</a>
+        {% else %}
+            <a href="{{ url_for('connexion') }}">Connexion</a>
+            <a href="{{ url_for('inscription') }}">Inscription au club</a>
+        {% endif %}
+        <a href="{{ url_for('consulter_commande') }}">Suivre votre commande</a>
+        <a href="{{ url_for('magasins') }}">Nos magasins</a>
+    </nav>
+    <p>
+        Bienvenue chez votre fleuriste préféré. Utilisez la barre de navigation pour accéder aux
+        différentes pages du site web.
+    </p>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+    <title>Confirmation de commande</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles_confirmation.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Fleuropa</h1>
+        <h2>Votre commande a bien été prise en compte</h2>
+    </header>
+    <nav>
+        <a href="{{ url_for('accueil') }}">Accueil</a>
+        <a href="{{ url_for('bouquets') }}">Bouquets</a>
+        {% if 'numcli' in session %}
+            <a href="{{ url_for('deconnexion') }}">Déconnexion</a>
+        {% else %}
+            <a href="{{ url_for('connexion') }}">Connexion</a>
+            <a href="{{ url_for('inscription') }}">Inscription au club</a>
+        {% endif %}
+        <a href="{{ url_for('consulter_commande') }}">Suivre votre commande</a>
+    </nav>
+    <div class="container">
+        <p>Merci pour votre commande !</p>
+        <p>Votre numéro de commande est : <span class="important">{{ num_commande }}</span></p>
+        <p>Votre code confidentiel est : <span class="important">{{ code_confidentiel }}</span></p>
+        <p>Vous pouvez suivre votre commande grâce à ce code.</p>
+        <div class="recap">
+            <h2>Récapitulatif de la commande</h2>
+            <p><strong>Modèle :</strong> {{ modele }}</p>
+            <p><strong>Taille :</strong> {{ taille }}</p>
+            <p><strong>Prix :</strong> {{ prix }} €</p>
+            <p><strong>Nom du destinataire :</strong> {{ nom_destinataire }}</p>
+            <p><strong>Prénom du destinataire :</strong> {{ prenom_destinataire }}</p>
+            <p><strong>Adresse du destinataire :</strong> {{ adresse_destinataire }}</p>
+            <p><strong>Date d'expédition :</strong> {{ date_expedition }}</p>
+        </div>
+        <p>A bientôt !</p>
+    </div>
+</body>
+</html>

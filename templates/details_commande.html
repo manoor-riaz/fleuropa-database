@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Détails de la Commande</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles_detailscommande.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Détails de la Commande</h1>
+        <table>
+            <tr>
+                <th>Référence</th>
+                <td>{{ commande.reference_c }}</td>
+            </tr>
+            <tr>
+                <th>Code Confidentiel</th>
+                <td>{{ commande.codeconfidentiel }}</td>
+            </tr>
+            <tr>
+                <th>Date d'Expédition Voulue</th>
+                <td>{{ commande.dateexpeditionvoulue }}</td>
+            </tr>
+            <tr>
+                <th>État</th>
+                <td>{{ commande.etat }}</td>
+            </tr>
+            <tr>
+                <th>Message Destinataire</th>
+                <td>{{ commande.messagedestinaire }}</td>
+            </tr>
+            <tr>
+                <th>Adresse Destinataire</th>
+                <td>{{ commande.adressedestinataire }}</td>
+            </tr>
+            <tr>
+                <th>Nom Destinataire</th>
+                <td>{{ commande.nomdestinataire }}</td>
+            </tr>
+            <tr>
+                <th>Prénom Destinataire</th>
+                <td>{{ commande.prenomdestinataire }}</td>
+            </tr>
+            <tr>
+                <th>Nom Expéditeur</th>
+                <td>{{ commande.nomexpediteur }}</td>
+            </tr>
+            <tr>
+                <th>Prénom Expéditeur</th>
+                <td>{{ commande.prenomexpediteur }}</td>
+            </tr>
+            <tr>
+                <th>Adresse Email</th>
+                <td>{{ commande.adressemail }}</td>
+            </tr>
+            <tr>
+                <th>Modèle du Bouquet</th>
+                <td>{{ commande.modele }}</td>
+            </tr>
+            <tr>
+                <th>Mode de Livraison</th>
+                {% if livreur %}
+                    <td>Coursier</td>
+                {% else %}
+                    <td>Chronopost</td>
+                {% endif %}
+            </tr>
+            <tr>
+                <th>Nom du Livreur</th>
+                {% if livreur %}
+                    <td>{{ livreur.nom }}</td>
+                {% else %}
+                    <td>Non disponible</td>
+                {% endif %}
+            </tr>
+            <tr>
+                <th>Prénom du Livreur</th>
+                {% if livreur %}
+                    <td>{{ livreur.prenom}}</td>
+                {% else %}
+                    <td>Non disponible</td>
+                {% endif %}
+            </tr>
+            <tr>
+                <th>Téléphone du Livreur</th>
+                {% if livreur %}
+                    <td>{{ livreur.telephone}}</td>
+                {% else %}
+                    <td>09 69 39 13 91</td>
+                {% endif %}
+            </tr>
+            <tr>
+                <th>Photo du Bouquet</th>
+                <td>
+                    {% if commande.photocommande %}
+                        <img src="data:image/jpeg;base64,{{ commande.photocommande | b64encode }}" alt="Photo du Bouquet">
+                        <a href="data:image/jpeg;base64,{{ commande.photocommande | b64encode }}" download="bouquet.jpg">Télécharger</a>
+                    {% else %}
+                        Pas de photo disponible
+                    {% endif %}
+                </td>
+            </tr>
+        </table>
+        <p><a href="{{ url_for('accueil') }}">Retour à l'accueil</a></p>
+    </div>
+</body>
+</html>

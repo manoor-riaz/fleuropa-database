@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+    <title>Détails du Bouquet - {{ bouquet.modele }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles_bouquet.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Fleuropa</h1>
+        <h2>Fleuriste depuis 1980</h2>
+    </header>
+    <nav>
+        <a href="{{ url_for('accueil') }}">Accueil</a>
+        <a href="{{ url_for('bouquets') }}">Bouquets</a>
+        {% if 'numcli' in session %}
+            <a href="{{ url_for('deconnexion') }}">Déconnexion</a>
+        {% else %}
+            <a href="{{ url_for('connexion') }}">Connexion</a>
+            <a href="{{ url_for('inscription') }}">Inscription au club</a>
+        {% endif %}
+        <a href="{{ url_for('consulter_commande') }}">Suivre votre commande</a>
+    </nav>
+    <div class="container">
+        <div class="bouquet-detail">
+            <img src="{{ url_for('static', filename=bouquet.photomodele)}}" alt="{{ bouquet.modele }}">
+            <h3>{{ bouquet.modele }}</h3>
+            <p>Taille: {{ bouquet.taille }}</p>
+            <p>Prix: {{ bouquet.prix }}€</p>
+            <button class="order-button" onclick="window.location.href='{{ url_for('commande', modele=bouquet.modele, taille=bouquet.taille, photomodele=bouquet.photomodele, prix=bouquet.prix) }}'">Passer commande</button>
+        </div>
+    </div>
+</body>
+</html>

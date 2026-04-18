@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Erreur Commande</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles_erreur.css') }}">
+
+</head>
+<body>
+    <div class="container">
+        <h1>Erreur Commande</h1>
+        <p>La commande avec la référence fournie n'a pas été trouvée ou le code confidentiel est incorrect.</p>
+        <p><a href="{{ url_for('consulter_commande') }}">Réessayer</a></p>
+        <p><a href="{{ url_for('accueil') }}">Retour à l'accueil</a></p>
+    </div>
+</body>
+</html>

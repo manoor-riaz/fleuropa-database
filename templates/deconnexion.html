@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+    <title>Déconnexion - Fleuropa</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles_deconnexion.css') }}">
+
+</head>
+<body>
+    <header>
+        <h1>Fleuropa</h1>
+    </header>
+
+    <div class="container">
+        <div class="message">
+            <p>Vous avez été déconnecté avec succès.</p>
+        </div>
+        <p><a href="{{ url_for('accueil') }}">Retour à l'accueil</a></p>
+        <p><a href="{{ url_for('connexion') }}">Se reconnecter</a></p>
+    </div>
+</body>
+</html>
